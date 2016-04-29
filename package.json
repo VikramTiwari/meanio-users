@@ -15,7 +15,7 @@
     "npm": "3.x"
   },
   "scripts": {
-    "postinstall" : "bower install"
+    "postinstall": "bower install"
   },
   "dependencies": {
     "passport-facebook": "latest",
@@ -26,7 +26,7 @@
     "passport-twitter": "latest",
     "nodemailer": "latest",
     "meanio-circles": "git://github.com/linnovate/meanio-circles.git",
-    "angular-jwt" : "latest"
+    "angular-jwt": "latest"
   },
   "license": "MIT"
 }

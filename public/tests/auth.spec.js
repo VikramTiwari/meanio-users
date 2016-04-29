@@ -1,4 +1,4 @@
-'use strict';
+'use strict()';
 
 (function() {
   // Login Controller Spec
@@ -13,7 +13,7 @@
                   pass: angular.equals(actual, expected)
                 };
               }
-            };
+            };
           }
         });
       });

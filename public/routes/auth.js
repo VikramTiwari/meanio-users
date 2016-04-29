@@ -1,13 +1,14 @@
-'use strict';
+'use strict()';
 
 //Setting up route
-angular.module('mean.users').config(['$httpProvider', 'jwtInterceptorProvider',
-  function($httpProvider, jwtInterceptorProvider) {    
-        
-    jwtInterceptorProvider.tokenGetter = function() {
-      return localStorage.getItem('JWT');
-    };
+angular.module('mean.users')
+  .config(['$httpProvider', 'jwtInterceptorProvider',
+    function($httpProvider, jwtInterceptorProvider) {
 
-    $httpProvider.interceptors.push('jwtInterceptor');
-  }
-]);
+      jwtInterceptorProvider.tokenGetter = function() {
+        return localStorage.getItem('JWT');
+      };
+
+      $httpProvider.interceptors.push('jwtInterceptor');
+    }
+  ]);

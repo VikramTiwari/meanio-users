@@ -1,4 +1,4 @@
-'use strict';
+'use strict()';
 
 angular.module('mean.users')
   .controller('AuthCtrl', ['$scope', '$rootScope', '$http', '$state', 'Global',
@@ -10,7 +10,7 @@ angular.module('mean.users')
 
       $http.get('/api/get-config')
         .success(function(config) {
-          if(config.hasOwnProperty('local')) delete config.local; // Only non-local passport strategies
+          if (config.hasOwnProperty('local')) delete config.local; // Only non-local passport strategies
           $scope.socialButtons = config;
           $scope.socialButtonsCounter = Object.keys(config).length;
         });
@@ -22,7 +22,7 @@ angular.module('mean.users')
 
       // This object will be filled by the form
       vm.user = {};
-      
+
       vm.input = {
         type: 'password',
         placeholder: 'Password',
@@ -38,7 +38,7 @@ angular.module('mean.users')
         vm.input.tooltipText = vm.input.tooltipText === 'Show password' ? 'Hide password' : 'Show password';
       };
 
-      $rootScope.$on('loginfailed', function(){
+      $rootScope.$on('loginfailed', function() {
         vm.loginError = MeanUser.loginError;
       });
 
@@ -53,7 +53,7 @@ angular.module('mean.users')
       var vm = this;
 
       vm.user = {};
-      
+
       vm.registerForm = MeanUser.registerForm = true;
 
       vm.input = {
@@ -83,7 +83,7 @@ angular.module('mean.users')
         MeanUser.register(this.user);
       };
 
-      $rootScope.$on('registerfailed', function(){
+      $rootScope.$on('registerfailed', function() {
         vm.registerError = MeanUser.registerError;
       });
     }
@@ -91,12 +91,12 @@ angular.module('mean.users')
   .controller('ForgotPasswordCtrl', ['MeanUser', '$rootScope',
     function(MeanUser, $rootScope) {
       var vm = this;
-      vm.user = {};      
+      vm.user = {};
       vm.registerForm = MeanUser.registerForm = false;
       vm.forgotpassword = function() {
         MeanUser.forgotpassword(this.user);
       };
-      $rootScope.$on('forgotmailsent', function(event, args){
+      $rootScope.$on('forgotmailsent', function(event, args) {
         vm.response = args;
       });
     }
@@ -104,7 +104,7 @@ angular.module('mean.users')
   .controller('ResetPasswordCtrl', ['MeanUser',
     function(MeanUser) {
       var vm = this;
-      vm.user = {};      
+      vm.user = {};
       vm.registerForm = MeanUser.registerForm = false;
       vm.resetpassword = function() {
         MeanUser.resetpassword(this.user);

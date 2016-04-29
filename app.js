@@ -1,4 +1,4 @@
-'use strict';
+'use strict()';
 
 /*
  * Defining the Package
@@ -6,17 +6,19 @@
 var mean = require('meanio'),
   Module = mean.Module;
 
-function MeanUserKlass () {
+function MeanUserKlass() {
   Module.call(this, 'users');
   this.auth = null;
 }
 
-MeanUserKlass.prototype = Object.create(Module.prototype,{constructor:{
-  value:MeanUserKlass,
-  configurable: false,
-  enumerable: false,
-  writable: false
-}});
+MeanUserKlass.prototype = Object.create(Module.prototype, {
+  constructor: {
+    value: MeanUserKlass,
+    configurable: false,
+    enumerable: false,
+    writable: false
+  }
+});
 
 var MeanUser = new MeanUserKlass();
 
@@ -26,19 +28,19 @@ var MeanUser = new MeanUserKlass();
  */
 MeanUser.register(function(app, database, passport) {
 
-    MeanUser.auth = require('./authorization');
-    require('./passport')(passport);
+  MeanUser.auth = require('./authorization');
+  require('./passport')(passport);
 
-    mean.register('auth', MeanUser.auth);
+  mean.register('auth', MeanUser.auth);
 
-    //We enable routing. By default the Package Object is passed to the routes
-    MeanUser.routes(app, MeanUser.auth, database, passport);
+  //We enable routing. By default the Package Object is passed to the routes
+  MeanUser.routes(app, MeanUser.auth, database, passport);
 
-    MeanUser.angularDependencies(['angular-jwt']);
+  MeanUser.angularDependencies(['angular-jwt']);
 
-    MeanUser.events.defaultData({
-        type: 'user'
-    });
+  MeanUser.events.defaultData({
+    type: 'user'
+  });
 
-    return MeanUser;
+  return MeanUser;
 });

@@ -1,6 +1,6 @@
-/* jshint -W079 */ 
+/* jshint -W079 */
 /* Related to https://github.com/linnovate/mean/issues/898 */
-'use strict';
+'use strict()';
 
 var crypto = require('crypto');
 
@@ -21,7 +21,7 @@ function getRandomString(len) {
  */
 
 var expect = require('expect.js'),
-  	mongoose = require('mongoose'),
+  mongoose = require('mongoose'),
   User = mongoose.model('User');
 
 /**
@@ -39,7 +39,6 @@ describe('<Unit Test>', function() {
       user1 = {
         name: 'Full name',
         email: 'test' + getRandomString() + '@test.com',
-        username: getRandomString(),
         password: 'password',
         provider: 'local'
       };
@@ -47,7 +46,6 @@ describe('<Unit Test>', function() {
       user2 = {
         name: 'Full name',
         email: 'test' + getRandomString() + '@test.com',
-        username: getRandomString(),
         password: 'password',
         provider: 'local'
       };
@@ -93,7 +91,7 @@ describe('<Unit Test>', function() {
           expect(_user.hasRole('authenticated')).to.equal(true);
           expect(_user.hasRole('admin')).to.equal(false);
           expect(_user.isAdmin()).to.equal(false);
-          // With the introduction of roles by circles a user has both anonymous and authenticated circles upon creation 
+          // With the introduction of roles by circles a user has both anonymous and authenticated circles upon creation
           expect(_user.roles.length).to.equal(2);
           _user.remove(function(err) {
             done();
@@ -166,17 +164,6 @@ describe('<Unit Test>', function() {
 
         var _user = new User(user1);
         _user.name = '';
-
-        return _user.save(function(err) {
-          expect(err).to.not.be(null);
-          done();
-        });
-      });
-
-      it('should show an error when try to save without username', function(done) {
-
-        var _user = new User(user1);
-        _user.username = '';
 
         return _user.save(function(err) {
           expect(err).to.not.be(null);
@@ -400,17 +387,6 @@ describe('<Unit Test>', function() {
 
         return _user.save(function(err) {
           expect(_user.name).to.be('&lt;/script&gt;&lt;script&gt;alert(1)&lt;/script&gt;');
-          done();
-        });
-      });
-
-      it('username should be escaped from xss', function(done) {
-
-        var _user = new User(user1);
-        _user.name = '<b>xss</b>';
-
-        return _user.save(function(err) {
-          expect(_user.name).to.be('&lt;b&gt;xss&lt;/b&gt;');
           done();
         });
       });

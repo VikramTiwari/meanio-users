@@ -79,7 +79,9 @@ module.exports = function(passport) {
         user.save(function(err) {
           if (err) {
             console.log(err);
-            return done(null, false, {message: 'Twitter login failed, email already used by other login strategy'});
+            return done(null, false, {
+              message: 'Twitter login failed, email already used by other login strategy'
+            });
           } else {
             return done(err, user);
           }
@@ -116,7 +118,9 @@ module.exports = function(passport) {
         user.save(function(err) {
           if (err) {
             console.log(err);
-            return done(null, false, {message: 'Facebook login failed, email already used by other login strategy'});
+            return done(null, false, {
+              message: 'Facebook login failed, email already used by other login strategy'
+            });
           } else {
             return done(err, user);
           }
@@ -139,7 +143,7 @@ module.exports = function(passport) {
           return done(err, user);
         }
         user = new User({
-	  name: profile._json.displayName || profile._json.login,
+          name: profile._json.displayName || profile._json.login,
           username: profile._json.login,
           email: profile.emails[0].value,
           provider: 'github',
@@ -149,7 +153,9 @@ module.exports = function(passport) {
         user.save(function(err) {
           if (err) {
             console.log(err);
-            return done(null, false, {message: 'Github login failed, email already used by other login strategy'});
+            return done(null, false, {
+              message: 'Github login failed, email already used by other login strategy'
+            });
           } else {
             return done(err, user);
           }
@@ -182,7 +188,9 @@ module.exports = function(passport) {
         user.save(function(err) {
           if (err) {
             console.log(err);
-            return done(null, false, {message: 'Google login failed, email already used by other login strategy'});
+            return done(null, false, {
+              message: 'Google login failed, email already used by other login strategy'
+            });
           } else {
             return done(err, user);
           }
@@ -216,7 +224,9 @@ module.exports = function(passport) {
         user.save(function(err) {
           if (err) {
             console.log(err);
-            return done(null, false, {message: 'LinkedIn login failed, email already used by other login strategy'});
+            return done(null, false, {
+              message: 'LinkedIn login failed, email already used by other login strategy'
+            });
           } else {
             return done(err, user);
           }

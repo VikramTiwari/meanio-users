@@ -1,4 +1,4 @@
-'use strict';
+'use strict()';
 
 module.exports = {
   forgot_password_email: function(user, req, token, mailOptions) {

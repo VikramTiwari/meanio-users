@@ -1,0 +1,11 @@
+{
+  "globals": {
+    "require": false,
+    "exports": false,
+    "module": false,
+    "describe": false,
+    "before": false,
+    "it": false,
+    "console": false
+  }
+}

@@ -25,7 +25,7 @@
     "passport-local": "latest",
     "passport-twitter": "latest",
     "nodemailer": "latest",
-    "meanio-circles": "git://github.com/linnovate/meanio-circles.git",
+    "meanio-circles": "git://github.com/vikramtiwari/meanio-circles.git",
     "angular-jwt": "latest"
   },
   "license": "MIT"
